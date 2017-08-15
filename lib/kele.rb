@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 
 class Kele
   include HTTParty
@@ -8,6 +9,11 @@ class Kele
     response = self.class.post(base_url("sessions"), body: { email: email, password: password })
     raise 'Email or password was incorrect' if response.code == 404
     @auth_token = response["auth_token"]
+  end
+
+  def get_me
+    response = self.class.get(base_url("users/me"), headers: { "authorization" => @auth_token })
+    @user_data = JSON.parse(response.body)
   end
 
   private
