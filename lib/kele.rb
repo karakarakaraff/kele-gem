@@ -1,14 +1,20 @@
 require 'httparty'
 require 'json'
 require './lib/roadmap.rb'
+require './lib/messages.rb'
 
 class Kele
   include HTTParty
   include Roadmap
+  include Messages
   attr_reader :auth_token
 
   def initialize(email, password)
-    response = self.class.post(base_url("sessions"), body: { email: email, password: password })
+    response = self.class.post(base_url("sessions"),
+    body: {
+      "email": email,
+      "password": password
+    })
     raise 'Email or password was incorrect' if response.code == 404
     @auth_token = response["auth_token"]
   end
