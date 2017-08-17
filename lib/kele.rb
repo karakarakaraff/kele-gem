@@ -6,6 +6,7 @@ class Kele
   include HTTParty
   include Roadmap
   attr_reader :auth_token
+  attr_reader :user_data
 
   def initialize(email, password)
     response = self.class.post(base_url("sessions"), body: { email: email, password: password })
