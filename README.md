@@ -4,11 +4,11 @@ A Ruby Gem API client that allows authorized users to access the [Bloc API](http
 ## Bloc API documentation
 To see how the usage examples below work with the Bloc API, be sure to checkout the [full Bloc API documentation](http://docs.blocapi.apiary.io/).
 
-## Getting Started
+## Getting started
 + Add `gem kele` into your application's Gemfile and then run `bundle`
 + or run `gem install kele` from your command line.
 
-## Usage example
+## Usage examples
 Run irb and require the gem in your lib:  
 ```
 $ irb
